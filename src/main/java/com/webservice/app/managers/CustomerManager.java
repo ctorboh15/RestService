@@ -8,7 +8,15 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class CustomerManager implements BaseManager<Customer>
+public class CustomerManager implements BaseBeanManager<Customer>
 {
+    @Autowired
+    private CustomerDAO customerDAO;
 
+
+    @Override
+    public List<Customer> listAllActive()
+    {
+        return customerDAO.list();
+    }
 }

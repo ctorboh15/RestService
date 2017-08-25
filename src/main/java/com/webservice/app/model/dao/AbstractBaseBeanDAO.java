@@ -8,24 +8,24 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+
 public abstract class AbstractBaseBeanDAO<T extends BaseBean>
 {
-    /**
+
     @Autowired
     SessionFactory sessionFactory;
-**/
+
     @Transactional
     protected List<T> listAll()
     {
-        /**
+
         String hql = "from " + getTableName() +" where activeIND ='Y' " ;
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
         @SuppressWarnings("unchecked")
         List<T> beanList = (List<T>) query.list();
 
-        return beanList;**/
-        return null;
+        return beanList;
     }
 
     protected abstract String getTableName();

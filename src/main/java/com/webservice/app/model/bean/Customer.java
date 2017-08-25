@@ -1,6 +1,11 @@
 package com.webservice.app.model.bean;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.webservice.app.Utils.AppDateUtils;
+import com.webservice.app.Utils.DateSerializer;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -24,7 +29,8 @@ public class Customer extends AbstractBean {
     private String mobile;
 
     @Column(name = "dateOfBirth", columnDefinition = "DATETIME")
-    private Date dateOfBirth;
+    @JsonSerialize(using= DateSerializer.class)
+    private Timestamp dateOfBirth;
 
     public Customer(long id, String firstName, String lastName, String email, String mobile) {
         this.id = id;
@@ -32,7 +38,7 @@ public class Customer extends AbstractBean {
         this.lastName = lastName;
         this.email = email;
         this.mobile = mobile;
-        this.dateOfBirth = new Date();
+        this.dateOfBirth = AppDateUtils.dateToTimeStamp(new Date());
     }
 
     public Customer() {
@@ -78,11 +84,11 @@ public class Customer extends AbstractBean {
         this.mobile = mobile;
     }
 
-    public Date getDateOfBirth() {
+    public Timestamp getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(Timestamp timestamp) {
         this.dateOfBirth = dateOfBirth;
     }
 }

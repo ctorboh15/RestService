@@ -2,10 +2,12 @@ package com.webservice.app.model.dao;
 
 import com.webservice.app.model.bean.Customer;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
+@Transactional
 public class CustomerDAOImpl extends AbstractBaseBeanDAO<Customer> implements CustomerDAO
 {
     private static final String TABLE_NAME = "Customer";
@@ -16,7 +18,8 @@ public class CustomerDAOImpl extends AbstractBaseBeanDAO<Customer> implements Cu
     }
 
     @Override
-    public List<Customer> list() {
+    public List<Customer> list()
+    {
         return super.listAll();
     }
 

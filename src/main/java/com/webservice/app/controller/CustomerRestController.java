@@ -17,12 +17,14 @@ public class CustomerRestController
     @Autowired
     private CustomerRestDAO customerDAO;
 
+    @Autowired CustomerManager customerManager;
+
 
 
     @GetMapping("/customers")
     public List getCustomers() {
-       return customerDAO.list();
-        //return customerManager.findAllActive();
+       //return customerDAO.list();
+        return customerManager.listAllActive();
     }
 
     @GetMapping("/customers/{id}")
