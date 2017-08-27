@@ -14,7 +14,7 @@ public class Customer extends AbstractBean {
     @Id
     @GeneratedValue
     @Column(name = "customerID")
-    private Long id;
+    private int id;
 
     @Column(name = "firstName")
     private String firstName;
@@ -32,7 +32,7 @@ public class Customer extends AbstractBean {
     @JsonSerialize(using= DateSerializer.class)
     private Timestamp dateOfBirth;
 
-    public Customer(long id, String firstName, String lastName, String email, String mobile) {
+    public Customer( int id, String firstName, String lastName, String email, String mobile) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -44,11 +44,11 @@ public class Customer extends AbstractBean {
     public Customer() {
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

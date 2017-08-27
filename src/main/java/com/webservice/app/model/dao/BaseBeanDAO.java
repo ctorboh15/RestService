@@ -6,7 +6,7 @@ public interface BaseBeanDAO<T>
 {
     public List<T> list();
 
-    public T get(Long id);
+    public T findByID(int id);
 
     public boolean create(T t);
 

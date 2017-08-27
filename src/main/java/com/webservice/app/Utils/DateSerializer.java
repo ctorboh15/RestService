@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 

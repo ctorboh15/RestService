@@ -24,7 +24,7 @@ public class CustomerDAOImpl extends AbstractBaseBeanDAO<Customer> implements Cu
     }
 
     @Override
-    public Customer get(Long id) {
+    public Customer findByID(int id) {
         return null;
     }
 

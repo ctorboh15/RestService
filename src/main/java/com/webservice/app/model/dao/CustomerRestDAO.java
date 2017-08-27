@@ -35,10 +35,10 @@ public class CustomerRestDAO {
      * @param id customer id
      * @return customer object for given id
      */
-    public Customer get(Long id) {
+    public Customer get(int id) {
 
         for (Customer c : customers) {
-            if (c.getId().equals(id)) {
+            if (c.getId() == (id)) {
                 return c;
             }
         }
@@ -53,7 +53,7 @@ public class CustomerRestDAO {
      * @return customer object with updated id
      */
     public Customer create(Customer customer) {
-        customer.setId(System.currentTimeMillis());
+        customer.setId(43);
         customers.add(customer);
         return customer;
     }
@@ -65,16 +65,16 @@ public class CustomerRestDAO {
      * @param id the customer id
      * @return id of deleted customer object
      */
-    public Long delete(Long id) {
+    public int delete(int id) {
 
         for (Customer c : customers) {
-            if (c.getId().equals(id)) {
+            if (c.getId()== (id)) {
                 customers.remove(c);
                 return id;
             }
         }
 
-        return null;
+        return -1;
     }
 
     /**
@@ -85,10 +85,10 @@ public class CustomerRestDAO {
      * @param customer
      * @return customer object with id
      */
-    public Customer update(Long id, Customer customer) {
+    public Customer update(int id, Customer customer) {
 
         for (Customer c : customers) {
-            if (c.getId().equals(id)) {
+            if (c.getId()==(id)) {
                 customer.setId(c.getId());
                 customers.remove(c);
                 customers.add(customer);

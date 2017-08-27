@@ -28,7 +28,7 @@ public class CustomerRestController
     }
 
     @GetMapping("/customers/{id}")
-    public ResponseEntity getCustomer(@PathVariable("id") Long id) {
+    public ResponseEntity getCustomer(@PathVariable("id") int id) {
 
         Customer customer = customerDAO.get(id);
         if (customer == null) {
@@ -47,9 +47,9 @@ public class CustomerRestController
     }
 
     @DeleteMapping("/customers/{id}")
-    public ResponseEntity deleteCustomer(@PathVariable Long id) {
+    public ResponseEntity deleteCustomer(@PathVariable int id) {
 
-        if (null == customerDAO.delete(id)) {
+        if (customerDAO.delete(id) < 0) {
             return new ResponseEntity("No Customer found for ID " + id, HttpStatus.NOT_FOUND);
         }
 
@@ -58,7 +58,7 @@ public class CustomerRestController
     }
 
     @PutMapping("/customers/{id}")
-    public ResponseEntity updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
+    public ResponseEntity updateCustomer(@PathVariable int id, @RequestBody Customer customer) {
 
         customer = customerDAO.update(id, customer);
 
