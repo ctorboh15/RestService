@@ -24,13 +24,15 @@ public class CustomerDAOImpl extends AbstractBaseBeanDAO<Customer> implements Cu
     }
 
     @Override
-    public Customer findByID(int id) {
-        return null;
+    public Customer findByID(int id)
+    {
+        return super.findByID(id);
     }
 
     @Override
-    public boolean create(Customer customer) {
-        return false;
+    public void save(Customer customer)
+    {
+        saveOrUpdate(customer);
     }
 
     @Override

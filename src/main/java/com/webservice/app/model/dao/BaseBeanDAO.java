@@ -8,7 +8,7 @@ public interface BaseBeanDAO<T>
 
     public T findByID(int id);
 
-    public boolean create(T t);
+    public void save(T t);
 
     public boolean update(T t);
 

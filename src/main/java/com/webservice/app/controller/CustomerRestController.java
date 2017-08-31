@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/rest")
 public class CustomerRestController
 {
     @Autowired
@@ -30,7 +30,7 @@ public class CustomerRestController
     @GetMapping("/customers/{id}")
     public ResponseEntity getCustomer(@PathVariable("id") int id) {
 
-        Customer customer = customerDAO.get(id);
+        Customer customer = customerManager.findbyID(id); //customerDAO.get(id);
         if (customer == null) {
             return new ResponseEntity("No Customer found for ID " + id, HttpStatus.NOT_FOUND);
         }

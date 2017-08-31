@@ -30,9 +30,10 @@ public class Customer extends AbstractBean {
 
     @Column(name = "dateOfBirth", columnDefinition = "DATETIME")
     @JsonSerialize(using= DateSerializer.class)
-    private Timestamp dateOfBirth;
+    private Date dateOfBirth;
 
-    public Customer( int id, String firstName, String lastName, String email, String mobile) {
+    public Customer( int id, String firstName, String lastName, String email, String mobile)
+    {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -41,8 +42,11 @@ public class Customer extends AbstractBean {
         this.dateOfBirth = AppDateUtils.dateToTimeStamp(new Date());
     }
 
-    public Customer() {
+    public Customer()
+    {
     }
+
+
 
     public int getId() {
         return id;
@@ -84,11 +88,11 @@ public class Customer extends AbstractBean {
         this.mobile = mobile;
     }
 
-    public Timestamp getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Timestamp timestamp) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 }

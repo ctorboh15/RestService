@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 import java.io.StringWriter;
 import java.util.Map;
 
+/**
+ * Uses Apache Velocity to do parameter replacement... thus allowing for clean sql or hql to be passed to the databaseManger.
+ * preferred using this over parameter setting in the query object becuase it is easier to debug than "?" based queries.
+ */
 @Component
 public class QueryBuilder
 
